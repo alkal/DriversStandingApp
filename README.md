@@ -6,7 +6,7 @@ A list of drivers are presented for 2013 F1 series. User is able to click on dri
 
 The mentioned project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.0.
 
-[LIVE Demo](https://alkal.gr/DriverStandingApp/)
+[LIVE Demo](https://alkal.github.io/DriversStandingApp/)
 
 ## Stack
 
