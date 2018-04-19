@@ -1,0 +1,51 @@
+/*!
+ * Bootstrap v4.0.0-beta (https://getbootstrap.com)
+ * Copyright 2011-2017 The Bootstrap Authors
+ * Copyright 2011-2017 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ */
+
+// App variable
+@import "app-variables";
+
+// Bootstrap and its default variables
+@import "~bootstrap/scss/bootstrap";
+
+
+body {
+    & .container-fluid[role="outerWrapper"]{padding-top: 70px;}
+}
+
+.table{
+    th{border-top:$disable-border;}
+    &.table-hover{
+        tr{
+            &:hover{
+                td[scope='row-driverName']{
+                    &:hover{
+                        cursor: pointer;background-color: $dark;color:$white;
+                    }
+                }
+            }
+        }
+    }
+}
+
+button{
+    &.close{
+        &:hover:before{
+            content: 'Close sidebar...';
+            font-size: 11px;
+            font-style: italic;
+            font-weight: $font-weight-light;
+            color: $gray-700;
+            top: 6px;
+            position: absolute;
+            right: 42px;
+            top: 10px;
+        }
+    }
+}
+
+.md-14 { font-size: 14px; }
+.cdk-visually-hidden{display:none;}

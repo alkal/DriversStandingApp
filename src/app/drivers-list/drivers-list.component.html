@@ -1,0 +1,31 @@
+<!--If there is NOT error message, the content of ng-template will be presented on the DOM-->
+<ng-template [ngIf]="errorString===undefined">
+  <h1 class="h3 mt-3 mb-4">{{driversListSeason}} F1 Season</h1>
+  <div class="table-responsive-sm">
+    <table class="table table-hover" matSort (matSortChange)="sortData($event)">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th mat-sort-header="driverName">Driver's Name</th>
+          <th mat-sort-header="conName">Constructor's Name</th>
+          <th mat-sort-header="driverWins">Wins</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let dRow of filteredDrivers;let i = index">
+          <td scope="row">{{i + 1}}</td>
+          <td scope="row-driverName" (click)="sendDriverDetails(dRow.Driver.driverId)">
+            <img src="https://raw.githubusercontent.com/raonibr/f1feeder-part1/master/app/img/flags/{{dRow.Driver.nationality}}.png" />
+            {{dRow.Driver.givenName}}&nbsp;{{dRow.Driver.familyName}}
+          </td>
+          <td>{{dRow.Constructors[0].name}}</td>
+          <td>{{dRow.wins}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</ng-template>
+<!--If there is NOT error message, the content of DIV will NOT be presented on the DOM-->
+<div class="alert alert-danger mt-5 mb-5" role="alert" *ngIf="errorString!==undefined">
+    <mat-icon class="float-left mr-1">error outline</mat-icon> {{errorString}}
+</div>

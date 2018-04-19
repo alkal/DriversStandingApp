@@ -1,0 +1,22 @@
+<header>
+    <nav class="navbar fixed-top bg-gradient-dark navbar-dark bg-dark justify-content-between">
+        <a class="navbar-brand" href="#"><img src="assets/images/racing_flag.png" title="logo"/> Drivers Championship Standings</a>
+        <search-form (filterData)="DriversFilter($event)"></search-form>
+    </nav>
+</header><!--//header-->
+<div class="container-fluid" role="outerWrapper">
+    <div class="row">
+        <div class="col-sm-3 bg-light sidebar" [ngClass]="{'d-none':!isToggled}">
+            <div class="clearfix mb-3">
+                <button type="button" class="close float-right" aria-label="Close" (click)="closeSidebar()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <driver-info [driverEntity]='driverDetails'></driver-info>
+        </div><!--//sidebar-->
+        <main role="main" class="px-5" [ngClass]="{'col-sm-9':isToggled,'col-sm-12':!isToggled}">
+            <drivers-list [queryEntity]='queryInput' (getInfo)="DriverInfoEvent($event)"></drivers-list>
+        </main><!--//main-->
+    </div><!--//row-->
+</div><!--//container-fluid-->
+

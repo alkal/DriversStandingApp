@@ -1,0 +1,25 @@
+<ng-template [ngIf]="errorString===undefined">
+  <div class="card border-light mb-3"  *ngFor="let dRow of driverDetailsData">
+    <div class="card-header pt-1 pb-2 h5"><strong>Driver's Details</strong></div>
+    <div class="card-body pt-2 pb-0">
+        <dl class="row mb-0" >
+          <dt class="col col-xl-5">Date of Birth:</dt>
+          <dd class="col col-xl-7">{{dateOfBirth}}</dd>
+          <dt class="col col-xl-5">Family Name:</dt>
+          <dd class="col col-xl-7">{{dRow.Driver.familyName}}</dd>
+          <dt class="col col-xl-5">Constructor:</dt>
+          <dd class="col col-xl-7">
+            <ul class="list-unstyled mb-1">
+              <li><strong>{{dRow.Constructors[0].name}}</strong></li>
+              <li><img src="https://raw.githubusercontent.com/raonibr/f1feeder-part1/master/app/img/flags/{{dRow.Constructors[0].nationality}}.png" /> {{dRow.Constructors[0].nationality}}</li>
+              <li><a href="{{dRow.Constructors[0].url}}" target="_black" title="Details for {{dRow.Constructors[0].name}}">Read Details <mat-icon class="md-14">launch</mat-icon></a></li>
+            </ul>
+            
+          </dd>
+        </dl>
+    </div>
+  </div>
+</ng-template>
+<div class="alert alert-danger mt-5 mb-5" role="alert" *ngIf="errorString!==undefined">
+    <mat-icon class="float-left mr-1">error outline</mat-icon> {{errorString}}
+</div>

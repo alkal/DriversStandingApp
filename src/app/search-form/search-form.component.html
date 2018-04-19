@@ -1,0 +1,9 @@
+<input 
+  type="text" 
+  name="searchField"
+  ngModel
+  #searchField="ngModel"
+  (keyup)="filterList(searchField.value)"
+  class="form-control"
+  placeholder="Search..."
+/>
